@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #f6f8ff 0%, #e9ecf5 100%);
+  position: relative;
+  min-height: 100vh;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 30%, rgba(76, 161, 255, 0.1) 0%, transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(255, 107, 107, 0.1) 0%, transparent 40%);
+  z-index: -1;
+}
+
+.gradient-text {
+  background: linear-gradient(45deg, #4a90e2, #5c6bc0, #7e57c2);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: hue 10s infinite linear;
+}
+
+@keyframes hue {
+  from {
+    filter: hue-rotate(0deg);
+  }
+  to {
+    filter: hue-rotate(360deg);
+  }
+}
+
+.content-container {
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 1rem;
+  box-shadow: 
+    0 4px 6px rgba(0, 0, 0, 0.05),
+    0 10px 15px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.content-container:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    0 6px 8px rgba(0, 0, 0, 0.05),
+    0 12px 18px rgba(0, 0, 0, 0.1);
+}
+
+/* Card styles */
+.card {
+  @apply bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+.card:hover {
+  @apply shadow-lg transform -translate-y-1;
+}
+
+/* Button styles */
+.btn {
+  @apply px-6 py-3 rounded-full font-semibold transition-all duration-300;
+  background: linear-gradient(45deg, #4a90e2, #5c6bc0);
+  border: none;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn:hover {
+  background: linear-gradient(45deg, #357abd, #4a58a7);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(90, 107, 192, 0.2);
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: 0.5s;
+}
+
+.btn:hover::before {
+  left: 100%;
+}
+
+/* Header styles */
+.header {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Color system cards */
+.color-system-card {
+  @apply p-6 rounded-lg transition-all duration-300;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+.color-system-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    0 6px 8px rgba(0, 0, 0, 0.05),
+    0 12px 18px rgba(0, 0, 0, 0.1);
+}
+
+/* Color palette display */
+.color-swatch {
+  @apply w-12 h-12 rounded-lg shadow-sm transition-transform duration-300;
+}
+
+.color-swatch:hover {
+  transform: scale(1.1);
+}
+
+/* Footer styles */
+.footer {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
